@@ -5,7 +5,7 @@ import java.util.HashMap;
 public abstract class Abonado {
 	private String nombre;
 	private String DNI;
-	private HashMap<String,Servicio> servicios;
+	private HashMap<String,Servicio> servicios;	//Hashmap asi no hay domicilios repetidos
 	
 	public Abonado(String nombre, String DNI) {
 		this.DNI = DNI;

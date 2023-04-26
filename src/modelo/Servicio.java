@@ -6,7 +6,7 @@ public abstract class Servicio {
 	private int cantBotonAP;
 	private boolean movilAcomp;
 	private static int sigNumId = 0;
-	private int numId;
+	private int numId;	//Identificacion de servicio (unica)
 	
 	public Servicio(float precioBase, int cantCamaras, int cantBotonAP, boolean movilAcomp) {
 		this.precioBase = precioBase;
@@ -36,5 +36,14 @@ public abstract class Servicio {
 	public int getNumId() {
 		return numId;
 	}
+	
+	public double getCostoBruto() {
+		if (this.movilAcomp)
+			return this.precioBase+3000*this.cantCamaras+2000*this.cantBotonAP+7500;
+		else
+			return this.precioBase+3000*this.cantCamaras+2000*this.cantBotonAP;
+	}
+	
+	public abstract double getCostoNeto(IPromocion promo);//Double dispatch
 
 }
