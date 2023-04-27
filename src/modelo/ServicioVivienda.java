@@ -2,19 +2,16 @@ package modelo;
 
 public class ServicioVivienda extends Servicio{
 
-	public ServicioVivienda(int cantCamaras, int cantBotonAP, boolean movilAcomp) {
-		super(8500, cantCamaras, cantBotonAP, movilAcomp);
-		// TODO Auto-generated constructor stub
+	public ServicioVivienda(int cantCamaras, int cantBotonAP, boolean movilAcomp,IPromocion promo) {
+		super(8500, cantCamaras, cantBotonAP, movilAcomp, promo); 
 	}
 
 	@Override
-	public double getCostoBruto() {
-		return 0;
-	}
-
-	@Override
-	public double getCostoNeto(IPromocion promo) {
-		return promo.getPromoVivienda(this.getCostoBruto());
+	public double getCostoNeto() {
+		if (this.promo != null)
+			return promo.getPromoVivienda(this.getCostoBruto());
+		else
+			return this.getCostoBruto();
 	}
 
 }

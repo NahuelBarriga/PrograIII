@@ -15,7 +15,7 @@ public class AbonadoFisico extends Abonado {
 		double resultado = 0;
 		
 		while (it.hasNext())
-			resultado += it.next().getValue().getCostoNeto(promo);	//Sumatoria
+			resultado += it.next().getValue().
 		return resultado;
 	}
 

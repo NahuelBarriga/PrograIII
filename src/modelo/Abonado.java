@@ -2,7 +2,7 @@
 
 import java.util.HashMap;
 
-public abstract class Abonado {
+public abstract class Abonado implements Cloneable{
 	protected String nombre;
 	protected String DNI;
 	protected HashMap<String,Servicio> servicios;	//Hashmap asi no hay domicilios repetidos

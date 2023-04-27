@@ -1,20 +1,22 @@
 package modelo;
 
 public abstract class Servicio {
-	private float precioBase;
-	private int cantCamaras;
-	private int cantBotonAP;
-	private boolean movilAcomp;
-	private static int sigNumId = 0;
-	private int numId;	//Identificacion de servicio (unica)
+	protected float precioBase;
+	protected int cantCamaras;
+	protected int cantBotonAP;
+	protected boolean movilAcomp;
+	protected static int sigNumId = 0;
+	protected int numId;	//Identificacion de servicio (unica)
+	protected IPromocion promo;
 	
-	public Servicio(float precioBase, int cantCamaras, int cantBotonAP, boolean movilAcomp) {
+	public Servicio(float precioBase, int cantCamaras, int cantBotonAP, boolean movilAcomp, IPromocion promo) {
 		this.precioBase = precioBase;
 		this.cantCamaras = cantCamaras;
 		this.cantBotonAP = cantBotonAP;
 		this.movilAcomp = movilAcomp;
 		sigNumId++;
 		this.numId = sigNumId;
+		this.promo = promo;
 	}
 
 	public float getPrecioBase() {
@@ -44,6 +46,6 @@ public abstract class Servicio {
 			return this.precioBase+3000*this.cantCamaras+2000*this.cantBotonAP;
 	}
 	
-	public abstract double getCostoNeto(IPromocion promo);//Double dispatch
+	public abstract double getCostoNeto();//Double dispatch
 
 }

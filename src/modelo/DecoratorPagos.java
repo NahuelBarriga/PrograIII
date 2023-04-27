@@ -15,4 +15,5 @@ public abstract class DecoratorPagos implements IAbonado{
 		return this.encapsulado.getDNI();
 	}
 	
+	
 }
