@@ -11,11 +11,11 @@ public class AbonadoFisico extends Abonado {
 
 	@Override
 	public double getCostoServicios(IPromocion promo) {
-		Iterator<Entry<String,Servicio>> it = this.servicios.entrySet().iterator();
+		Iterator<Entry<String,Servicio>> it = this.servicios.entrySet().iterator();//Iterator del Set del HashMap
 		double resultado = 0;
 		
 		while (it.hasNext())
-			resultado += it.next().getValue().getCostoNeto(promo);
+			resultado += it.next().getValue().getCostoNeto(promo);	//Sumatoria
 		return resultado;
 	}
 
