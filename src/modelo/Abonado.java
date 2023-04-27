@@ -33,5 +33,5 @@ public abstract class Abonado implements Cloneable{
 		servicios.remove(domicilio);
 	}
 	
-	public abstract double getCostoServicios(IPromocion promo);
+	public abstract double getCostoServicios();
 }

@@ -10,12 +10,12 @@ public class AbonadoFisico extends Abonado {
 	}
 
 	@Override
-	public double getCostoServicios(IPromocion promo) {
+	public double getCostoServicios() {//Calcula el costo de todos los servicios(cada uno con sus promociones)
 		Iterator<Entry<String,Servicio>> it = this.servicios.entrySet().iterator();//Iterator del Set del HashMap
 		double resultado = 0;
 		
 		while (it.hasNext())
-			resultado += it.next().getValue().
+			resultado += it.next().getValue().getCostoNeto();
 		return resultado;
 	}
 

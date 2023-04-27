@@ -10,16 +10,16 @@ public class AbonadoJuridico extends Abonado{
 	}
 
 	@Override
-	public double getCostoServicios(IPromocion promo) {//Chequear esto, no se si esta bien
+	public double getCostoServicios() {//Chequear esto, no se si esta bien????????????????????
 		Iterator<Entry<String,Servicio>> it = this.servicios.entrySet().iterator();	//Iterator del Set de HashMap
 		double resultado = 0;
 		
 		if (this.servicios.size() > 3)
 			for (int i=0;i<3;i++) {				
-				resultado += it.next().getValue().getCostoNeto(promo);
+				resultado += it.next().getValue().getCostoNeto();
 			}
 		while (it.hasNext())
-			resultado += it.next().getValue().getCostoNeto(promo)*0.5;	//Descuento del 50% a partir del tercero
+			resultado += it.next().getValue().getCostoNeto()*0.5;	//Descuento del 50% a partir del tercero
 		return resultado;
 	}
 

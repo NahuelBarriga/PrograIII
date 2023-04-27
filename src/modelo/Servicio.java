@@ -39,6 +39,10 @@ public abstract class Servicio {
 		return numId;
 	}
 	
+	public IPromocion getPromo() {
+		return promo;
+	}
+
 	public double getCostoBruto() {
 		if (this.movilAcomp)
 			return this.precioBase+3000*this.cantCamaras+2000*this.cantBotonAP+7500;
