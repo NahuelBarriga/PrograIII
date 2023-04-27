@@ -1,6 +1,8 @@
 	package modelo;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
 
 public abstract class Abonado implements Cloneable{
 	protected String nombre;
@@ -34,4 +36,17 @@ public abstract class Abonado implements Cloneable{
 	}
 	
 	public abstract double getCostoServicios();
+	
+	public Object clone() throws CloneNotSupportedException{
+		Abonado clonado;
+		Iterator<Entry<String,Servicio>> it = this.servicios.entrySet().iterator();		
+		
+		clonado = (Abonado)super.clone();
+		clonado.servicios = new HashMap<String,Servicio>();
+		while (it.hasNext()) {
+			clonado.servicios.entrySet().
+		}
+		
+		return clonado;
+	}
 }

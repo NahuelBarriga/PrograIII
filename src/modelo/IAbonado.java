@@ -1,7 +1,7 @@
 package modelo;
 
 public interface IAbonado {
-	double getCostoServicio(IPromocion promo);
+	double getCostoServicio();
 	String getNombre();
 	String getDNI();
 	void imprimeServicios();

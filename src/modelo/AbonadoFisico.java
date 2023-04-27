@@ -18,5 +18,6 @@ public class AbonadoFisico extends Abonado {
 			resultado += it.next().getValue().getCostoNeto();
 		return resultado;
 	}
+	
 
 }

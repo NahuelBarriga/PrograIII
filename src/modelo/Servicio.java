@@ -1,6 +1,6 @@
 package modelo;
 
-public abstract class Servicio {
+public abstract class Servicio implements Cloneable{
 	protected float precioBase;
 	protected int cantCamaras;
 	protected int cantBotonAP;
@@ -51,5 +51,12 @@ public abstract class Servicio {
 	}
 	
 	public abstract double getCostoNeto();//Double dispatch
+	
+	public Object clone()throws CloneNotSupportedException {
+		Servicio clonado;
+		
+		clonado = (Servicio)super.clone();//Superficial
+		return clonado;
+	}
 
 }

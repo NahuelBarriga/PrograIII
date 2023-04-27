@@ -1,7 +1,5 @@
 package modelo;
 
-import java.util.Iterator;
-import java.util.Map.Entry;
 
 public abstract class DecoratorPagos implements IAbonado{
 	protected IAbonado encapsulado;
