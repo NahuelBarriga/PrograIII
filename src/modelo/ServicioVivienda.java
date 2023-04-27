@@ -9,7 +9,6 @@ public class ServicioVivienda extends Servicio{
 
 	@Override
 	public double getCostoBruto() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
