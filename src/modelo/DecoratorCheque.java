@@ -11,6 +11,7 @@ public class DecoratorCheque extends DecoratorPagos {
 		return this.encapsulado.getCostoServicio(promo)*0.9;//Aplica promo sobre el TOTAL que debe pagar un abonado por todos sus servicios
 	}
 
+
 	
 	
 }

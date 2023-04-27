@@ -1,15 +1,19 @@
 package modelo;
 
-public class Factura extends Abonado{
+import java.util.Iterator;
+import java.util.Map.Entry;
 
-	public Factura(String nombre, String DNI) {
-		super(nombre, DNI);
+public class Factura{ 
+	private DecoratorPagos decorator;
+
+	public Factura(DecoratorPagos abonado) {
+		super();
+		this.decorator = abonado;
 	}
-
-	@Override	
-	public double getCostoServicios(IPromocion promo) {
-		// TODO Auto-generated method stub
-		return super.get;
+	
+	public void getFactura() {
+		System.out.println(this.decorator.getNombre() + "     " + this.decorator.getDNI() + "/n");
+		this.decorator.imprimeServicios();
+		this.decorator.getCostoServicio();
 	}
-
 }
