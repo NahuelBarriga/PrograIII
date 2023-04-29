@@ -1,7 +1,7 @@
 package modelo;
 
 
-public abstract class DecoratorPagos implements IAbonado{
+public abstract class DecoratorPagos implements IAbonado, Cloneable{
 	protected IAbonado encapsulado;
 
 	public DecoratorPagos(IAbonado encapsulado) {
@@ -19,5 +19,13 @@ public abstract class DecoratorPagos implements IAbonado{
 	public void imprimeServicios() {
 		encapsulado.imprimeServicios();
 	}
+
+
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
+	
+	
 	
 }

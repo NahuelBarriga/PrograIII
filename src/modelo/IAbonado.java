@@ -1,8 +1,9 @@
 package modelo;
 
-public interface IAbonado {
-	double getCostoServicio();
+public interface IAbonado extends Cloneable {
+	double getCostoServicios();
 	String getNombre();
 	String getDNI();
 	void imprimeServicios();
+	Object clone() throws CloneNotSupportedException;
 }

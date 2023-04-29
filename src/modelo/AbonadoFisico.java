@@ -18,6 +18,13 @@ public class AbonadoFisico extends Abonado {
 			resultado += it.next().getValue().getCostoNeto();
 		return resultado;
 	}
+
+
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		AbonadoFisico clonado= (AbonadoFisico) super.clone();
+		return clonado;
+	}
 	
 
 }

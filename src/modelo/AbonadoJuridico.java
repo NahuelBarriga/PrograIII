@@ -23,4 +23,11 @@ public class AbonadoJuridico extends Abonado{
 		return resultado;
 	}
 
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return new CloneNotSupportedException();
+	}
+	
+	
+
 }

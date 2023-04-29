@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
-public abstract class Abonado implements Cloneable{
+public abstract class Abonado implements IAbonado{
 	protected String nombre;
 	protected String DNI;
 	protected HashMap<String,Servicio> servicios;	//Hashmap asi no hay domicilios repetidos
@@ -35,6 +35,14 @@ public abstract class Abonado implements Cloneable{
 		servicios.remove(domicilio);
 	}
 	
+	@Override
+	public void imprimeServicios() {
+		Iterator<Entry<String,Servicio>> it = this.servicios.entrySet().iterator();
+		while (it.hasNext()) {
+			it.next().toString();
+		}
+	}
+
 	public abstract double getCostoServicios();
 	
 	public Object clone() throws CloneNotSupportedException{
@@ -42,11 +50,10 @@ public abstract class Abonado implements Cloneable{
 		Iterator<Entry<String,Servicio>> it = this.servicios.entrySet().iterator();		
 		
 		clonado = (Abonado)super.clone();
-		clonado.servicios = new HashMap<String,Servicio>();
+		clonado.servicios = (HashMap<String,Servicio>) servicios.clone();
 		while (it.hasNext()) {
-			clonado.servicios.entrySet().
+			clonado.servicios.putAll(servicios);
 		}
-		
 		return clonado;
 	}
 }

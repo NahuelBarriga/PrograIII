@@ -7,8 +7,14 @@ public class DecoratorCredito extends DecoratorPagos{
 	}
 
 	@Override
-	public double getCostoServicio() {
-		return this.encapsulado.getCostoServicio()*0.95;//Aplica promo sobre el TOTAL que debe pagar un abonado por todos sus servicios
+	public double getCostoServicios() {
+		return this.encapsulado.getCostoServicios()*0.95;//Aplica promo sobre el TOTAL que debe pagar un abonado por todos sus servicios
 	}
 
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		DecoratorCredito clonado= (DecoratorCredito) super.clone();
+		clonado.encapsulado=(IAbonado) encapsulado.clone();
+		return clonado;
+	}
 }
