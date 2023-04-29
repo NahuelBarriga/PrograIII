@@ -1,4 +1,4 @@
-package modelo;
+package interfaces;
 
 public interface IAbonado extends Cloneable {
 	double getCostoServicios();

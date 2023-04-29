@@ -25,7 +25,7 @@ public class AbonadoJuridico extends Abonado{
 
 	@Override
 	public Object clone() throws CloneNotSupportedException {
-		return new CloneNotSupportedException();
+		return new CloneNotSupportedException("Imposible clonar una persona juridica");
 	}
 	
 	

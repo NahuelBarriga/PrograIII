@@ -1,5 +1,7 @@
 package modelo;
 
+import interfaces.IAbonado;
+
 public class DecoratorCheque extends DecoratorPagos {
 
 	public DecoratorCheque(IAbonado encapsulado) {

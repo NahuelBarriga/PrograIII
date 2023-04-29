@@ -1,5 +1,7 @@
 package modelo;
 
+import interfaces.IAbonado;
+
 public class DecoratorEfectivo extends DecoratorPagos {
 
 	

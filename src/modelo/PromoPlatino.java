@@ -1,5 +1,7 @@
 package modelo;
 
+import interfaces.IPromocion;
+
 public class PromoPlatino implements IPromocion {
 
 	@Override

@@ -1,5 +1,7 @@
 package modelo;
 
+import interfaces.IPromocion;
+
 public abstract class Servicio implements Cloneable{
 	protected float precioBase;
 	protected int cantCamaras;

@@ -1,5 +1,7 @@
 package modelo;
 
+import interfaces.IPromocion;
+
 public class ServicioComercio extends Servicio {
 
 	public ServicioComercio(int cantCamaras, int cantBotonAP, boolean movilAcomp,IPromocion promo) {

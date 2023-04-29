@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
+import interfaces.IAbonado;
+
 public abstract class Abonado implements IAbonado{
 	protected String nombre;
 	protected String DNI;
@@ -49,11 +51,17 @@ public abstract class Abonado implements IAbonado{
 		Abonado clonado;
 		Iterator<Entry<String,Servicio>> it = this.servicios.entrySet().iterator();		
 		
+		try {
 		clonado = (Abonado)super.clone();
-		clonado.servicios = (HashMap<String,Servicio>) servicios.clone();
+		clonado.servicios = new HashMap<String,Servicio>();		
 		while (it.hasNext()) {
-			clonado.servicios.putAll(servicios);
+			clonado.servicios.put(it.next().getKey(), (Servicio)it.next().getValue().clone());
 		}
 		return clonado;
+		}
+		catch (CloneNotSupportedException e){
+			e.getMessage();
+			return null;
+		}
 	}
 }

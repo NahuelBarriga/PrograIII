@@ -1,5 +1,6 @@
 package modelo;
 
+import interfaces.IAbonado;
 
 public abstract class DecoratorPagos implements IAbonado, Cloneable{
 	protected IAbonado encapsulado;
