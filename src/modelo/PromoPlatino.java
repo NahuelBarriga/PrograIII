@@ -10,8 +10,8 @@ import interfaces.IPromocion;
 public class PromoPlatino implements IPromocion {
 
 	/**
-	 *aplica la pomocion dorada a un domicilio de tipo vivienda 
-	 *<b> pre: </> costoBruto debe ser positivo y no nulo 
+	 *aplica la pomocion dorada a un domicilio de tipo vivienda <b>
+	 *<b> pre: </> costoBruto debe ser positivo y no nulo  <b>
 	 *<b> post: </> retorna el costo bruto despues de la promocion
 	 */
 	@Override
@@ -20,8 +20,8 @@ public class PromoPlatino implements IPromocion {
 	}
 
 	/**
-	 *aplica la pomocion dorada a un domicionio de tipo comercio 
-	 *<b> pre: </> costoBruto debe ser positivo y no nulo 
+	 *aplica la pomocion dorada a un domicionio de tipo comercio <b> 
+	 *<b> pre: </> costoBruto debe ser positivo y no nulo <b>
 	 *<b> post: </> retorna el costo bruto despues de la promocion
 	 */
 	@Override
