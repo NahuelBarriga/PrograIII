@@ -58,7 +58,7 @@ public abstract class DecoratorPagos implements IAbonado, Cloneable{
 	 */
 	@Override
 	public void quitaServicio(String domicilio) {
-		
+		assert encapsulado.getServicio().containsKey(domicilio) : "Domicilio no existente";
 		try {
 			this.encapsulado.quitaServicio(domicilio);
 		}
@@ -77,9 +77,17 @@ public abstract class DecoratorPagos implements IAbonado, Cloneable{
 
 	/**
 	 *Agrega un servicio al HashMap servicios del encapsulado
+	 *<b> Pre: </b> domicilio no nulo y no vacio
+	 *<b> Pre: </b> servicio no null
+	 *<b> Pre: </b> domicilio no null y no vacio
+	 *<b> Post: </b> se agrega el servicio al domicilio en el HashMap
 	 */
 	@Override
 	public void agregaServicio(String domicilio, Servicio servicio) {
+		assert domicilio != null : "domicilio no valido";
+		assert domicilio != "" : "domicilio no valido";
+		assert servicio != null : "servicio no valido";
+
 		this.encapsulado.agregaServicio(domicilio, servicio);
 	}
 

@@ -1,5 +1,6 @@
 package modelo;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
@@ -57,6 +58,11 @@ public class AbonadoJuridico extends Abonado{
 	@Override
 	public String getTipo() {
 		return "Juridico";
+	}
+
+	@Override
+	public HashMap<String, Servicio> getServicio() {
+		return null;
 	}
 	
 	

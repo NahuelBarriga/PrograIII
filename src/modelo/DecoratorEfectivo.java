@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.HashMap;
+
 import interfaces.IAbonado;
 
 /**
@@ -40,6 +42,11 @@ public class DecoratorEfectivo extends DecoratorPagos {
 	@Override
 	public String getFormaPago() {
 		return "Efectivo";
+	}
+
+	@Override
+	public HashMap<String, Servicio> getServicio() {
+		return null;
 	}
 	
 	

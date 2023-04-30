@@ -38,7 +38,7 @@ public abstract class Abonado implements IAbonado{
 		return DNI;
 	}
 
-	public HashMap<String, Servicio> getSevicios() {
+	public HashMap<String, Servicio> getServicios() {
 		return servicios;
 	}
 	
