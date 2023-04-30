@@ -28,6 +28,10 @@ public abstract class Servicio implements Cloneable{
 	 * <b>Post:</b> Crea un objeto instancia de la clase servicio
 	 */
 	public Servicio(float precioBase, int cantCamaras, int cantBotonAP, boolean movilAcomp, IPromocion promo) {
+		assert precioBase > 0 : "precio base no es valido";
+		assert cantCamaras >= 0 : "cantidad de camaras no valida";
+		assert cantBotonAP >= 0 : "cantidad de botones antipanico invalida";
+		//de promo?
 		this.precioBase = precioBase;
 		this.cantCamaras = cantCamaras;
 		this.cantBotonAP = cantBotonAP;
@@ -35,6 +39,12 @@ public abstract class Servicio implements Cloneable{
 		sigNumId++;
 		this.numId = sigNumId;
 		this.promo = promo;
+		assert this.precioBase==precioBase : "fallo postcondicion";
+		assert this.cantCamaras == cantCamaras : "fallo postcondicion";
+		assert this.cantBotonAP == cantBotonAP : "fallo postcondicion";
+		assert this.movilAcomp == movilAcomp : "fallo postcondicion";
+		assert this.numId == sigNumId : "fallo postcondicion";
+		assert this.promo == promo : "fallo postcondicion";
 	}
 
 	public float getPrecioBase() {

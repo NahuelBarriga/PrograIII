@@ -19,6 +19,10 @@ public class AbonadoFisico extends Abonado {
 	 */
 	public AbonadoFisico(String nombre, String DNI) {
 		super(nombre, DNI);
+		assert nombre != null : "nombre no valido";
+		assert nombre != "" : "nombre no valido";
+		assert DNI != null : "DNI no valido";
+		assert DNI != "" : "DNI no valido";
 	}
 
 	/**
@@ -46,6 +50,11 @@ public class AbonadoFisico extends Abonado {
 	public Object clone() throws CloneNotSupportedException {
 		AbonadoFisico clonado= (AbonadoFisico) super.clone();
 		return clonado;
+	}
+
+	@Override
+	public String getTipo() {
+		return "Fisico";
 	}
 	
 
