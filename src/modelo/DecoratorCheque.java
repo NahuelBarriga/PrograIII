@@ -36,8 +36,4 @@ public class DecoratorCheque extends DecoratorPagos {
 		clonado.encapsulado=(IAbonado) encapsulado.clone();
 		return clonado;
 	}
-
-	
-	
-	
 }

@@ -29,9 +29,6 @@ public abstract class DecoratorPagos implements IAbonado, Cloneable{
 		return this.encapsulado.getDNI();
 	}
 	
-	/**
-	 *Muestra los servicios del encapsulado
-	 */
 	public void imprimeServicios() {
 		encapsulado.imprimeServicios();
 	}
