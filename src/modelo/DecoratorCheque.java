@@ -10,7 +10,7 @@ public class DecoratorCheque extends DecoratorPagos {
 
 	@Override
 	public double getCostoServicios() {
-		return this.encapsulado.getCostoServicios()*0.9;//Aplica promo sobre el TOTAL que debe pagar un abonado por todos sus servicios
+		return this.encapsulado.getCostoServicios()*1.1;//Aplica promo sobre el TOTAL que debe pagar un abonado por todos sus servicios
 	}
 
 

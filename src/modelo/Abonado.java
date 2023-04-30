@@ -71,7 +71,7 @@ public abstract class Abonado implements IAbonado{
 	public void imprimeServicios() {
 		Iterator<Entry<String,Servicio>> it = this.servicios.entrySet().iterator();
 		while (it.hasNext()) {
-			it.next().toString();
+			System.out.println(it.next().toString());
 		}
 	}
 
@@ -91,7 +91,7 @@ public abstract class Abonado implements IAbonado{
 		
 		try {
 		clonado = (Abonado)super.clone();
-		clonado.servicios = new HashMap<String,Servicio>();		
+		clonado.servicios = (HashMap<String,Servicio>) servicios.clone();		
 		while (it.hasNext()) {
 			clonado.servicios.put(it.next().getKey(), (Servicio)it.next().getValue().clone());
 		}

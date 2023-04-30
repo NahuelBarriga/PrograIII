@@ -10,7 +10,7 @@ public class DecoratorCredito extends DecoratorPagos{
 
 	@Override
 	public double getCostoServicios() {
-		return this.encapsulado.getCostoServicios()*0.95;//Aplica promo sobre el TOTAL que debe pagar un abonado por todos sus servicios
+		return this.encapsulado.getCostoServicios()*1.05;//Aplica promo sobre el TOTAL que debe pagar un abonado por todos sus servicios
 	}
 
 	@Override
