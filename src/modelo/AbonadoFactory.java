@@ -29,6 +29,7 @@ public class AbonadoFactory {
 	 * <b>Pre:</b> nombre debe ser distinto de null y no vacio<br>
 	 * <b>Pre:</b> DNI debe ser distinto de null y no vacio
 	 * <b> Post: </b> se crea una instancia de abonado 
+	 * @throws TipoAbonadoInvalidoException 
 	 */
 	public static IAbonado getAbonado(String tipoAbonado, String formaPago, String nombre, String DNI) throws TipoAbonadoInvalidoException, TipoPagoInvalidoException {
 		assert tipoAbonado != null : "tipo de abonado no valido";
