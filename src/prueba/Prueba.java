@@ -30,25 +30,25 @@ public class Prueba {
 			a1 = AbonadoFactory.getAbonado("Fisico","Cheque","Gregorio","43509237");
 		} catch (TipoAbonadoInvalidoException | TipoPagoInvalidoException e) {
 		
-			e.printStackTrace();
+			e.getMessage();
 		}
 		IAbonado a2 = null;
 		try {
 			a2 = AbonadoFactory.getAbonado("Fisico", "Credito", "Nahuel", "43184902");
 		} catch (TipoAbonadoInvalidoException | TipoPagoInvalidoException e) {
-			e.printStackTrace();
+			e.getMessage();
 		}
 		IAbonado a3 = null;
 		try {
 			a3 = AbonadoFactory.getAbonado("Juridico", "Efectivo", "Julieta", "43689912");
 		} catch (TipoAbonadoInvalidoException | TipoPagoInvalidoException e) {
-			e.printStackTrace();
+			e.getMessage();
 		}
 		IAbonado a4 = null;
 		try {
 			a4 = AbonadoFactory.getAbonado("Juridico", "Credito", "Guido", "43459862");
 		} catch (TipoAbonadoInvalidoException | TipoPagoInvalidoException e) {
-			e.printStackTrace();
+			e.getMessage();
 		}
 		
 		
@@ -59,7 +59,7 @@ public class Prueba {
 		try {
 			a4.quitaServicio("Chile 986");
 		} catch (DomicilioInvalidoException e) {
-			e.printStackTrace();
+			e.getMessage();
 		}
 		a4.agregaServicio("Francia 560", sV3);
 		
@@ -77,10 +77,10 @@ public class Prueba {
 		try {
 			Factura f2= (Factura) f1.clone();
 			f2.getFactura();
-			f2.agregarServicio("Paso 2200", sC3);
-			f2.getFactura();
+			//f2.agregarServicio("Paso 2200", sC3);
+			//f2.getFactura();
 		} catch (CloneNotSupportedException e) {
-			e.printStackTrace();
+			e.getMessage();
 		}
 	}
 }
