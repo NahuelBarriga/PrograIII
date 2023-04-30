@@ -2,12 +2,29 @@ package modelo;
 
 import interfaces.IPromocion;
 
+/**
+ * @author
+ *Clase que representa un servicio a una vivienda
+ */
 public class ServicioVivienda extends Servicio{
 
+	/**
+	 * Constructor de la clase ServicioVivienda
+	 * @param cantCamaras: Cantidad de camaras del servicio
+	 * @param cantBotonAP: Cantidad de botones antipanico
+	 * @param movilAcomp: Booleano que indica verdadero si el servicio posee movil de acompanamiento, falso en caso contrario
+	 * @param promo: Promo del servicio<br>
+	 * <b>Pre:</b> cantCamaras debe ser mayor o igual que 0<br>
+	 * <b>Pre:</b> cantBotonAP debe ser mayor o igual que 0<br>
+	 * <b>Post:</b> Crea un objeto instancia de la clase ServicioComercio 
+	 */
 	public ServicioVivienda(int cantCamaras, int cantBotonAP, boolean movilAcomp,IPromocion promo) {
 		super(8500, cantCamaras, cantBotonAP, movilAcomp, promo); 
 	}
 
+	/**
+	 *Calcula el costo neto del servicio teniendo en cuenta el atributo promo
+	 */
 	@Override
 	public double getCostoNeto() {
 		if (this.promo != null)
