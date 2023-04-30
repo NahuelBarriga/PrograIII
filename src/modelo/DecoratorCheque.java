@@ -26,5 +26,6 @@ public class DecoratorCheque extends DecoratorPagos {
 		encapsulado.agregaServicio(domicilio, servicio);
 		
 	}
+
 	
 }

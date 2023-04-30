@@ -50,7 +50,14 @@ public abstract class Abonado implements IAbonado{
 	 * <b> post: </b> agrega servicio al hashmap de domicilios 
 	 */
 	public void agregaServicio(String domicilio, Servicio servicio) {
+		assert domicilio != null : "domicilio no valido"; 
+		assert domicilio != "" :  "domicilio no valido";
+		assert servicio != null : "servicio no valido"; 
+		assert servicio.numId!= 0 :  "servicio no valido";
 		servicios.put(domicilio, servicio);
+		assert servicios.get(domicilio) == servicio: "fallo en la postcondicion";
+		assert servicios.isEmpty() == true : "fallo invariante";
+		
 	}
 	
 	/**
@@ -59,8 +66,15 @@ public abstract class Abonado implements IAbonado{
 	 * <b> pre: </b> domicilio tiene que ser no nulo y no vacio <br>
 	 * <b> post: </b> elimina un servicio del hashmap de domicilios 
 	 */
-	public void quitaServicio(String domicilio) {
+	public void quitaServicio(String domicilio) throws DomicilioInvalidoException {
+		assert domicilio != null : "domicilio no valido"; 
+		assert domicilio != "" :  "domicilio no valido";
+		if (this.servicios.containsKey(domicilio))
 		servicios.remove(domicilio);
+		else 
+			throw new DomicilioInvalidoException(domicilio);
+		
+		assert servicios.containsKey(domicilio) : "fallo en el postcodigo";
 	}
 	
 	/**

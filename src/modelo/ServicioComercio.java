@@ -20,6 +20,8 @@ public class ServicioComercio extends Servicio {
 	 */
 	public ServicioComercio(int cantCamaras, int cantBotonAP, boolean movilAcomp,IPromocion promo) {
 		super(10000, cantCamaras, cantBotonAP, movilAcomp,promo);
+		assert cantCamaras >= 0 : "cantidad de camaras no valida";
+		assert cantBotonAP >= 0 : "cantidad de botones antipanico invalida";
 	}
 
 	/**

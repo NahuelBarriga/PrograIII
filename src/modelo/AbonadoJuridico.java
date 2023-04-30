@@ -19,6 +19,10 @@ public class AbonadoJuridico extends Abonado{
 	 */
 	public AbonadoJuridico(String nombre, String DNI) {
 		super(nombre, DNI);
+		assert nombre != null : "nombre no valido";
+		assert nombre != "" : "nombre no valido";
+		assert DNI != null : "DNI no valido";
+		assert DNI != "" : "DNI no valido";
 	}
 
 	/**
@@ -48,6 +52,11 @@ public class AbonadoJuridico extends Abonado{
 	@Override
 	public Object clone() throws CloneNotSupportedException {
 		return new CloneNotSupportedException("Imposible clonar una persona juridica");
+	}
+
+	@Override
+	public String getTipo() {
+		return "Juridico";
 	}
 	
 	

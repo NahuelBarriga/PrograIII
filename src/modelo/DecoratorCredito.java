@@ -25,5 +25,5 @@ public class DecoratorCredito extends DecoratorPagos{
 		encapsulado.agregaServicio(domicilio, servicio);
 		
 	}
-	
+
 }

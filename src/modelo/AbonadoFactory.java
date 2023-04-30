@@ -22,10 +22,21 @@ public class AbonadoFactory {
 	 * @param nombre: Nombre del abonado
 	 * @param DNI: DNI del abonado
 	 * @return: Devuelve una nueva instancia del tipo IAbonado
+	 * <b>Pre: <b> el tipo de abonado debe ser distinto de null y no vacio <br>
+	 * <b> Pre: <b> la forma de pago debe ser distinta de null y no vacia <b>
 	 * <b>Pre:</b> nombre debe ser distinto de null y no vacio<br>
 	 * <b>Pre:</b> DNI debe ser distinto de null y no vacio
+	 * <b> Post: </b> se crea una instancia de abonado 
 	 */
 	public static IAbonado getAbonado(String tipoAbonado, String formaPago, String nombre, String DNI) {
+		assert tipoAbonado != null : "tipo de abonado no valido";
+		assert tipoAbonado != "" : "tipo de abonado no valido";
+		assert formaPago != null : "forma de pago no valida";
+		assert formaPago != "" : "forma de pago no valida";
+		assert nombre != null : "nombre no valido";
+		assert nombre != "" : "nombre no valido";
+		assert DNI != null : "DNI no valido";
+		assert DNI != "" : "DNI no valido";
 		IAbonado encapsulado = null;
 		IAbonado respuesta = null;
 		
@@ -42,6 +53,12 @@ public class AbonadoFactory {
 			else if (formaPago.equalsIgnoreCase("Efectivo"))
 				respuesta = new DecoratorEfectivo(encapsulado);
 		}
+		assert encapsulado.getNombre() == nombre : "fallo en el postcondicion";
+		assert encapsulado.getDNI() == DNI : "fallo en el postcondicion";
+		assert encapsulado.getTipo().equalsIgnoreCase(tipoAbonado): "fallo en el postcondicion";
+		assert encapsulado.getFormaPago.equalsIgnoreCase(formaPago) : "fallo en el postcondicion";
+		
 		return respuesta;
+		
 	}
 }
