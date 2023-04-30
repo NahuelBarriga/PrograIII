@@ -30,7 +30,7 @@ public class Factura implements Cloneable{
 	}
 
 	/**
-	 *meotdo que clona la factura <b> 
+	 *metodo que clona la factura <b> 
 	 * puede retornar una excepcion 
 	 */
 	@Override
