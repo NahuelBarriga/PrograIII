@@ -37,9 +37,16 @@ public class ServicioVivienda extends Servicio{
 	
 	@Override
 	public String toString() {
-		return "Servicio a Vivienda : Precio base:" + precioBase + "$, Cantidad de camaras:" + cantCamaras + ", Cantidad de"
-				+" botones antipanico:"+ cantBotonAP + ", Movil de acompanamiento:" + movilAcomp + ", Id del servicio="
-				+ numId + ", Promo:" + promo;
+		if (promo!=null) {
+			return "Servicio a Comercio : Precio base:" + precioBase + "$, Cantidad de camaras:" + cantCamaras + ", Cantidad de"
+					+" botones antipanico:"+ cantBotonAP + ", Movil de acompanamiento:" + movilAcomp + ", Id del servicio="
+					+ numId + ", Promo:" + promo.getPromoNombre();
+		}
+		else {
+			return "Servicio a Comercio : Precio base:" + precioBase + "$, Cantidad de camaras:" + cantCamaras + ", Cantidad de"
+					+" botones antipanico:"+ cantBotonAP + ", Movil de acompanamiento:" + movilAcomp + ", Id del servicio="
+					+ numId;
+		} 
 	}
 
 }

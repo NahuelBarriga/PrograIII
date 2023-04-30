@@ -1,5 +1,8 @@
 package prueba;
 
+import excepciones.DomicilioInvalidoException;
+import excepciones.TipoAbonadoInvalidoException;
+import excepciones.TipoPagoInvalidoException;
 import interfaces.IAbonado;
 import interfaces.IPromocion;
 import modelo.AbonadoFactory;
@@ -14,18 +17,67 @@ public class Prueba {
 	public static void main(String[] args) {
 		final IPromocion dorada= new PromoDorada();
 		final IPromocion platino= new PromoPlatino();
-		IAbonado a1= AbonadoFactory.getAbonado("Fisico","Cheque","Gregorio","43509237");
-		Servicio s1= new ServicioComercio(2,1,true,null);
-		a1.agregaServicio("Santiago del Estero 2200", s1);
-		Servicio s2= new ServicioVivienda(2,1,true,dorada);
-		a1.agregaServicio("La quiaca", s2);
+		
+		Servicio sC1= new ServicioComercio(2,1,true,null);
+		Servicio sC2 = new ServicioComercio(15,1,false,platino);
+		Servicio sC3 = new ServicioComercio(0,2,true, dorada);
+		Servicio sV1= new ServicioVivienda(2,1,true,dorada);
+		Servicio sV2= new ServicioVivienda(2,3,false,platino);
+		Servicio sV3= new ServicioVivienda(6,3,false,dorada);
+		
+		IAbonado a1 = null;
+		try {
+			a1 = AbonadoFactory.getAbonado("Fisico","Cheque","Gregorio","43509237");
+		} catch (TipoAbonadoInvalidoException | TipoPagoInvalidoException e) {
+		
+			e.printStackTrace();
+		}
+		IAbonado a2 = null;
+		try {
+			a2 = AbonadoFactory.getAbonado("Fisico", "Credito", "Nahuel", "43184902");
+		} catch (TipoAbonadoInvalidoException | TipoPagoInvalidoException e) {
+			e.printStackTrace();
+		}
+		IAbonado a3 = null;
+		try {
+			a3 = AbonadoFactory.getAbonado("Juridico", "Efectivo", "Julieta", "43689912");
+		} catch (TipoAbonadoInvalidoException | TipoPagoInvalidoException e) {
+			e.printStackTrace();
+		}
+		IAbonado a4 = null;
+		try {
+			a4 = AbonadoFactory.getAbonado("Juridico", "Credito", "Guido", "43459862");
+		} catch (TipoAbonadoInvalidoException | TipoPagoInvalidoException e) {
+			e.printStackTrace();
+		}
+		
+		
+		a1.agregaServicio("Santiago del Estero 2200", sC1);
+		a2.agregaServicio("jujuy 560", sC2);
+		a3.agregaServicio("La quiaca", sV1);
+		a4.agregaServicio("Chile 986", sV2);
+		try {
+			a4.quitaServicio("Chile 986");
+		} catch (DomicilioInvalidoException e) {
+			e.printStackTrace();
+		}
+		a4.agregaServicio("Francia 560", sV3);
+		
+		
 		Factura f1= new Factura(a1);
+		Factura f3= new Factura(a2);
+		Factura f4= new Factura(a3);
+		Factura f5= new Factura(a4);
+		
 		f1.getFactura();
-		Servicio s3= new ServicioVivienda(2,1,true,platino);
+		/*f3.getFactura();
+		f4.getFactura();
+		f5.getFactura();*/
+		
 		try {
 			Factura f2= (Factura) f1.clone();
 			f2.getFactura();
-			f2.agregarServicio("Paso 2200", s3);
+			f2.agregarServicio("Paso 2200", sC3);
 			f2.getFactura();
 		} catch (CloneNotSupportedException e) {
 			e.printStackTrace();

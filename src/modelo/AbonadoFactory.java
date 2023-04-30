@@ -1,5 +1,7 @@
 package modelo;
 
+import excepciones.TipoAbonadoInvalidoException;
+import excepciones.TipoPagoInvalidoException;
 import interfaces.IAbonado;
 
 /**
@@ -28,7 +30,7 @@ public class AbonadoFactory {
 	 * <b>Pre:</b> DNI debe ser distinto de null y no vacio
 	 * <b> Post: </b> se crea una instancia de abonado 
 	 */
-	public static IAbonado getAbonado(String tipoAbonado, String formaPago, String nombre, String DNI) {
+	public static IAbonado getAbonado(String tipoAbonado, String formaPago, String nombre, String DNI) throws TipoAbonadoInvalidoException, TipoPagoInvalidoException {
 		assert tipoAbonado != null : "tipo de abonado no valido";
 		assert tipoAbonado != "" : "tipo de abonado no valido";
 		assert formaPago != null : "forma de pago no valida";
@@ -44,6 +46,8 @@ public class AbonadoFactory {
 			encapsulado = new AbonadoFisico(nombre, DNI);
 		else if (tipoAbonado.equalsIgnoreCase("Juridico"))
 			encapsulado = new AbonadoJuridico(nombre, DNI);
+		else 
+			throw new TipoAbonadoInvalidoException(tipoAbonado); 
 		
 		if (encapsulado != null) {
 			if (formaPago.equalsIgnoreCase("Cheque"))
@@ -52,6 +56,7 @@ public class AbonadoFactory {
 				respuesta = new DecoratorCredito(encapsulado);
 			else if (formaPago.equalsIgnoreCase("Efectivo"))
 				respuesta = new DecoratorEfectivo(encapsulado);
+			else new TipoPagoInvalidoException(formaPago);
 		}
 		assert encapsulado.getNombre() == nombre : "fallo en el postcondicion";
 		assert encapsulado.getDNI() == DNI : "fallo en el postcondicion";

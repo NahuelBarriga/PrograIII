@@ -19,6 +19,7 @@ public abstract class DecoratorPagos implements IAbonado, Cloneable{
 	 */
 	public DecoratorPagos(IAbonado encapsulado) {
 		this.encapsulado = encapsulado;
+		assert encapsulado !=null : "encapsulado no valido";
 	}
 	
 	public String getNombre() {
@@ -57,6 +58,7 @@ public abstract class DecoratorPagos implements IAbonado, Cloneable{
 	 */
 	@Override
 	public void quitaServicio(String domicilio) {
+		
 		try {
 			this.encapsulado.quitaServicio(domicilio);
 		}

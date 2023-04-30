@@ -16,6 +16,7 @@ public class DecoratorEfectivo extends DecoratorPagos {
 	 */
 	public DecoratorEfectivo(IAbonado encapsulado) {
 		super(encapsulado);
+		assert encapsulado !=null : "encapsulado no valido";
 	}
 
 	/**
