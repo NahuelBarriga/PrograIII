@@ -6,11 +6,23 @@ import java.util.Map.Entry;
 
 import interfaces.IAbonado;
 
+/**
+ * @author 
+ * clase abstracta que representa un abonado dentro de un sistema 
+ */
 public abstract class Abonado implements IAbonado{
 	protected String nombre;
 	protected String DNI;
 	protected HashMap<String,Servicio> servicios;	//Hashmap asi no hay domicilios repetidos
 	
+	/**
+	 * constructor de la clase
+	 * @param nombre: es el nombre del abonado
+	 * @param DNI: DNI del abonado
+	 * <b> pre: </b> nombre tiene que ser no vacio y no null <br> 
+	 * <b> pre: </b> DNI tiene que ser no vacio y no null <br> 
+	 * <b> post: </b> Crea un objeto de tipo abonado 
+	 */
 	public Abonado(String nombre, String DNI) {
 		this.DNI = DNI;
 		this.nombre = nombre;
@@ -29,14 +41,32 @@ public abstract class Abonado implements IAbonado{
 		return servicios;
 	}
 	
+	/**
+	 * metodo void que agrega un determinado domicilio y tipo de servicio al hashmap de servicios
+	 * @param domicilio: domicilio del servicio
+	 * @param servicio: parametro que representa a un tipo de servicio
+	 * <b> pre: </b> domicilio tiene que ser no nulo y no vacio <br>
+	 * <b> pre: </b> servicio tiene que ser no nulo y no vacio <br>
+	 * <b> post: </b> agrega servicio al hashmap de domicilios 
+	 */
 	public void agregaServicio(String domicilio, Servicio servicio) {
 		servicios.put(domicilio, servicio);
 	}
 	
+	/**
+	 * metodo void que quita un determinado servicio de un domicilio en el hashmap de servicios
+	 * @param domicilio: domicilio del servicio
+	 * <b> pre: </b> domicilio tiene que ser no nulo y no vacio <br>
+	 * <b> post: </b> elimina un servicio del hashmap de domicilios 
+	 */
 	public void quitaServicio(String domicilio) {
 		servicios.remove(domicilio);
 	}
 	
+	/**
+	 *metodo void que imprime por pantalla cada uno de los servicios de un abonado
+	 *<b> post: </b> imprime por pantalla los servicios de un abonado
+	 */
 	@Override
 	public void imprimeServicios() {
 		Iterator<Entry<String,Servicio>> it = this.servicios.entrySet().iterator();
@@ -45,8 +75,16 @@ public abstract class Abonado implements IAbonado{
 		}
 	}
 
+	/**
+	 *metodo abstracto que calcula el costo de todos los servicios de un cliente 
+	 */
 	public abstract double getCostoServicios();
 	
+	/**
+	 *metodo que clona el abonado <br> 
+	 *puede lanzar una excepcion en caso que el abonado sea juridico
+	 *<b> post: </b> genera un clon de abonado
+	 */
 	public Object clone() throws CloneNotSupportedException{
 		Abonado clonado;
 		Iterator<Entry<String,Servicio>> it = this.servicios.entrySet().iterator();		
