@@ -15,5 +15,12 @@ public class ServicioVivienda extends Servicio{
 		else
 			return this.getCostoBruto();
 	}
+	
+	@Override
+	public String toString() {
+		return "Servicio a Vivienda : Precio base:" + precioBase + "$, Cantidad de camaras:" + cantCamaras + ", Cantidad de"
+				+" botones antipanico:"+ cantBotonAP + ", Movil de acompanamiento:" + movilAcomp + ", Id del servicio="
+				+ numId + ", Promo:" + promo;
+	}
 
 }

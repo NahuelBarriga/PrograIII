@@ -61,7 +61,7 @@ public abstract class Abonado implements IAbonado{
 		}
 		catch (CloneNotSupportedException e){
 			e.getMessage();
-			return null;
+			throw e;
 		}
 	}
 }

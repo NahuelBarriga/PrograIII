@@ -21,10 +21,18 @@ public abstract class DecoratorPagos implements IAbonado, Cloneable{
 		encapsulado.imprimeServicios();
 	}
 
-
 	@Override
 	public Object clone() throws CloneNotSupportedException {
-		return super.clone();
+		DecoratorPagos clonado;
+		
+		clonado = (DecoratorPagos)super.clone();
+		try {
+			clonado.encapsulado = (IAbonado)this.encapsulado.clone();
+			return clonado;
+		}
+		catch (CloneNotSupportedException e) {
+			throw e;
+		}
 	}
 	
 	

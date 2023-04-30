@@ -16,4 +16,13 @@ public class ServicioComercio extends Servicio {
 			return this.getCostoBruto();
 	}
 
+	@Override
+	public String toString() {
+		return "Servicio a Comercio : Precio base:" + precioBase + "$, Cantidad de camaras:" + cantCamaras + ", Cantidad de"
+				+" botones antipanico:"+ cantBotonAP + ", Movil de acompanamiento:" + movilAcomp + ", Id del servicio="
+				+ numId + ", Promo:" + promo;
+	}
+	
+	
+
 }
