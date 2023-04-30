@@ -19,4 +19,11 @@ public class DecoratorCredito extends DecoratorPagos{
 		clonado.encapsulado=(IAbonado) encapsulado.clone();
 		return clonado;
 	}
+	
+	@Override
+	public void agregaServicio(String domicilio, Servicio servicio) {
+		encapsulado.agregaServicio(domicilio, servicio);
+		
+	}
+	
 }
