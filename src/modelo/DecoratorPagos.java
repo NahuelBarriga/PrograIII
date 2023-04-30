@@ -80,7 +80,19 @@ public abstract class DecoratorPagos implements IAbonado, Cloneable{
 	public void agregaServicio(String domicilio, Servicio servicio) {
 		this.encapsulado.agregaServicio(domicilio, servicio);
 	}
+
+	/**
+	 *Devuelve un String con el tipo de abonado del encapsulado
+	 */
+	@Override
+	public String getTipo() {
+		return this.encapsulado.getTipo();
+	}
 	
-	
+	/**
+	 * Devuelve la forma de pago del Decorator
+	 * @return: String que describe de que manera va a pagar el encapsulado
+	 */
+	public abstract String getFormaPago();
 	
 }

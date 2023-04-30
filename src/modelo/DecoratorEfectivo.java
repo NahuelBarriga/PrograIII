@@ -35,5 +35,11 @@ public class DecoratorEfectivo extends DecoratorPagos {
 		clonado.encapsulado=(IAbonado) encapsulado.clone();
 		return clonado;
 	}
+
+	@Override
+	public String getFormaPago() {
+		return "Efectivo";
+	}
+	
 	
 }

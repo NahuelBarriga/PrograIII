@@ -38,7 +38,7 @@ public class AbonadoFactory {
 		assert DNI != null : "DNI no valido";
 		assert DNI != "" : "DNI no valido";
 		IAbonado encapsulado = null;
-		IAbonado respuesta = null;
+		DecoratorPagos respuesta = null;
 		
 		if (tipoAbonado.equalsIgnoreCase("Fisico"))
 			encapsulado = new AbonadoFisico(nombre, DNI);
@@ -56,7 +56,7 @@ public class AbonadoFactory {
 		assert encapsulado.getNombre() == nombre : "fallo en el postcondicion";
 		assert encapsulado.getDNI() == DNI : "fallo en el postcondicion";
 		assert encapsulado.getTipo().equalsIgnoreCase(tipoAbonado): "fallo en el postcondicion";
-		assert encapsulado.getFormaPago.equalsIgnoreCase(formaPago) : "fallo en el postcondicion";
+		assert respuesta.getFormaPago().equalsIgnoreCase(formaPago) : "fallo en el postcondicion";
 		
 		return respuesta;
 		
