@@ -48,7 +48,7 @@ public class AbonadoFactory {
 		else if (tipoAbonado.equalsIgnoreCase("Juridico"))
 			encapsulado = new AbonadoJuridico(nombre, DNI);
 		else 
-			throw new TipoAbonadoInvalidoException(tipoAbonado); 
+			throw new TipoAbonadoInvalidoException(); 
 		
 		if (encapsulado != null) {
 			if (formaPago.equalsIgnoreCase("Cheque"))
@@ -57,7 +57,7 @@ public class AbonadoFactory {
 				respuesta = new DecoratorCredito(encapsulado);
 			else if (formaPago.equalsIgnoreCase("Efectivo"))
 				respuesta = new DecoratorEfectivo(encapsulado);
-			else new TipoPagoInvalidoException(formaPago);
+			else new TipoPagoInvalidoException();
 		}
 		assert encapsulado.getNombre() == nombre : "fallo en el postcondicion";
 		assert encapsulado.getDNI() == DNI : "fallo en el postcondicion";

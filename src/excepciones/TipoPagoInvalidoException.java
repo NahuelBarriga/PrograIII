@@ -1,15 +1,13 @@
 package excepciones;
 
 public class TipoPagoInvalidoException extends Exception {
-	private String tipoPago; 
 	
-	public TipoPagoInvalidoException(String tipoPago) {
-		super(tipoPago);
+	public TipoPagoInvalidoException() {
 	}
 
 
 	@Override
 	public String getMessage() {
-		return "El tipo de pago: " + this.tipoPago + " no es valido";
+		return "El tipo de pago no es valido";
 	}
 }

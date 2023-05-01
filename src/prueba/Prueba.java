@@ -14,7 +14,7 @@ import modelo.ServicioComercio;
 import modelo.ServicioVivienda;
 
 public class Prueba {
-	public static void main(String[] args) throws DomicilioInvalidoException{
+	public static void main(String[] args) {
 		final IPromocion dorada= new PromoDorada();
 		final IPromocion platino= new PromoPlatino();
 		
@@ -37,15 +37,19 @@ public class Prueba {
 			a3 = AbonadoFactory.getAbonado("Juridico", "Efectivo", "Julieta", "43689912");
 			a4 = AbonadoFactory.getAbonado("Juridico", "Credito", "Guido", "43459862");
 		} catch (TipoAbonadoInvalidoException | TipoPagoInvalidoException e) {
-			// TODO Auto-generated catch block
-			e.getMessage();
+			
+			System.out.println(e.getMessage());
 		} 
 		
 		a1.agregaServicio("Santiago del Estero 2200", sC1);
 		a2.agregaServicio("jujuy 560", sC2);
 		a3.agregaServicio("La quiaca", sV1);
 		a4.agregaServicio("Chile 986", sV2);
-		a1.quitaServicio("Chile 986");
+		try {
+			a1.quitaServicio("Santiago del Estero 2200");
+		} catch (DomicilioInvalidoException e) {
+			System.out.println(e.getMessage());
+		}
 		a4.agregaServicio("Francia 560", sV3);
 		
 		
@@ -59,13 +63,13 @@ public class Prueba {
 		f4.getFactura();
 		f5.getFactura();
 		
-		/*try {
+		try {
 			Factura f2= (Factura) f1.clone();
 			f2.getFactura();
 			f2.agregarServicio("Paso 2200", sC3);
 			f2.getFactura();
 		} catch (CloneNotSupportedException e) {
 			e.getMessage();
-		}*/
+		}
 	}
 }

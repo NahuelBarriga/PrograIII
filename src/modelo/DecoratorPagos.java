@@ -55,16 +55,12 @@ public abstract class DecoratorPagos implements IAbonado, Cloneable{
 	 *Metodo que quita un servicio del encapsulado segun su domicilio<br>
 	 *<b>Pre:</b>El domicilio debe estar en el HashMap de servicios del encapsulado
 	 *<b>Post:</b> Quita el servicio del HashMap con el domcilio
+	 * @throws DomicilioInvalidoException 
 	 */
 	@Override
-	public void quitaServicio(String domicilio) {
+	public void quitaServicio(String domicilio) throws DomicilioInvalidoException {
 		assert encapsulado.getServicio().containsKey(domicilio) : "Domicilio no existente";
-		try {
-			this.encapsulado.quitaServicio(domicilio);
-		}
-		catch (DomicilioInvalidoException e) {
-			e.getMessage();
-		}
+		this.encapsulado.quitaServicio(domicilio);	
 	}
 
 	/**

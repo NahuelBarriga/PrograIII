@@ -1,17 +1,16 @@
 package excepciones;
 
 public class TipoAbonadoInvalidoException extends Exception {
-	private String tipoAbonado;
 		
 		
-	public TipoAbonadoInvalidoException(String tipoAbonado) {
-		super(tipoAbonado);
+	public TipoAbonadoInvalidoException() {
+
 	}
 
 
 	@Override
 	public String getMessage() {
-		return "El tipo de abonado: " + this.tipoAbonado + " no es valido";
+		return "El tipo de abonado no es valido";
 	}
 	
 }
