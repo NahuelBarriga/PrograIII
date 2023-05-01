@@ -87,7 +87,6 @@ public abstract class DecoratorPagos implements IAbonado, Cloneable{
 		assert domicilio != null : "domicilio no valido";
 		assert domicilio != "" : "domicilio no valido";
 		assert servicio != null : "servicio no valido";
-
 		this.encapsulado.agregaServicio(domicilio, servicio);
 	}
 

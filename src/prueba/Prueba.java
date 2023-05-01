@@ -30,6 +30,7 @@ public class Prueba {
 		IAbonado a2 = null;
 		IAbonado a3 = null;
 		IAbonado a4 = null;
+		
 		try {
 			a1 = AbonadoFactory.getAbonado("Fisico","Cheque","Gregorio","43509237");
 			a2 = AbonadoFactory.getAbonado("Fisico", "Credito", "Nahuel", "43184902");
@@ -44,7 +45,7 @@ public class Prueba {
 		a2.agregaServicio("jujuy 560", sC2);
 		a3.agregaServicio("La quiaca", sV1);
 		a4.agregaServicio("Chile 986", sV2);
-		a4.quitaServicio("Chile 986");
+		a1.quitaServicio("Chile 986");
 		a4.agregaServicio("Francia 560", sV3);
 		
 		
@@ -58,13 +59,13 @@ public class Prueba {
 		f4.getFactura();
 		f5.getFactura();*/
 		
-		try {
+		/*try {
 			Factura f2= (Factura) f1.clone();
 			f2.getFactura();
 			//f2.agregarServicio("Paso 2200", sC3);
 			//f2.getFactura();
 		} catch (CloneNotSupportedException e) {
 			e.getMessage();
-		}
+		}*/
 	}
 }

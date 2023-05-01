@@ -70,8 +70,9 @@ public abstract class Abonado implements IAbonado{
 	public void quitaServicio(String domicilio) throws DomicilioInvalidoException {
 		assert domicilio != null : "domicilio no valido"; 
 		assert domicilio != "" :  "domicilio no valido";
-		if (this.servicios.containsKey(domicilio))
-		servicios.remove(domicilio);
+		if (this.servicios.containsKey(domicilio)) {
+			servicios.remove(domicilio);
+		}
 		else 
 			throw new DomicilioInvalidoException(domicilio);
 		
