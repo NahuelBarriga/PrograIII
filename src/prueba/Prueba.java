@@ -14,7 +14,7 @@ import modelo.ServicioComercio;
 import modelo.ServicioVivienda;
 
 public class Prueba {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws DomicilioInvalidoException{
 		final IPromocion dorada= new PromoDorada();
 		final IPromocion platino= new PromoPlatino();
 		
@@ -25,42 +25,27 @@ public class Prueba {
 		Servicio sV2= new ServicioVivienda(2,3,false,platino);
 		Servicio sV3= new ServicioVivienda(6,3,false,dorada);
 		
+		
 		IAbonado a1 = null;
+		IAbonado a2 = null;
+		IAbonado a3 = null;
+		IAbonado a4 = null;
+		
 		try {
 			a1 = AbonadoFactory.getAbonado("Fisico","Cheque","Gregorio","43509237");
-		} catch (TipoAbonadoInvalidoException | TipoPagoInvalidoException e) {
-		
-			e.getMessage();
-		}
-		IAbonado a2 = null;
-		try {
 			a2 = AbonadoFactory.getAbonado("Fisico", "Credito", "Nahuel", "43184902");
-		} catch (TipoAbonadoInvalidoException | TipoPagoInvalidoException e) {
-			e.getMessage();
-		}
-		IAbonado a3 = null;
-		try {
 			a3 = AbonadoFactory.getAbonado("Juridico", "Efectivo", "Julieta", "43689912");
-		} catch (TipoAbonadoInvalidoException | TipoPagoInvalidoException e) {
-			e.getMessage();
-		}
-		IAbonado a4 = null;
-		try {
 			a4 = AbonadoFactory.getAbonado("Juridico", "Credito", "Guido", "43459862");
 		} catch (TipoAbonadoInvalidoException | TipoPagoInvalidoException e) {
+			// TODO Auto-generated catch block
 			e.getMessage();
-		}
-		
+		} 
 		
 		a1.agregaServicio("Santiago del Estero 2200", sC1);
 		a2.agregaServicio("jujuy 560", sC2);
 		a3.agregaServicio("La quiaca", sV1);
 		a4.agregaServicio("Chile 986", sV2);
-		try {
-			a4.quitaServicio("Chile 986");
-		} catch (DomicilioInvalidoException e) {
-			e.getMessage();
-		}
+		a1.quitaServicio("Chile 986");
 		a4.agregaServicio("Francia 560", sV3);
 		
 		
@@ -74,13 +59,13 @@ public class Prueba {
 		f4.getFactura();
 		f5.getFactura();
 		
-		try {
+		/*try {
 			Factura f2= (Factura) f1.clone();
 			f2.getFactura();
 			f2.agregarServicio("Paso 2200", sC3);
 			f2.getFactura();
 		} catch (CloneNotSupportedException e) {
 			e.getMessage();
-		}
+		}*/
 	}
 }
