@@ -2,6 +2,7 @@
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Map.Entry;
 
 import excepciones.DomicilioInvalidoException;
@@ -108,7 +109,8 @@ public abstract class Abonado implements IAbonado{
 		clonado = (Abonado)super.clone();
 		clonado.servicios = (HashMap<String,Servicio>) servicios.clone();		
 		while (it.hasNext()) {
-			clonado.servicios.put(it.next().getKey(), (Servicio)it.next().getValue().clone());
+			Map.Entry<String,Servicio> entry = it.next();
+			clonado.servicios.put(entry.getKey(), (Servicio) entry.getValue().clone());
 		}
 		return clonado;
 		}

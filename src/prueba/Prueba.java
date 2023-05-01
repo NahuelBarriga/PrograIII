@@ -70,15 +70,15 @@ public class Prueba {
 		Factura f5= new Factura(a4);
 		
 		f1.getFactura();
-		/*f3.getFactura();
+		f3.getFactura();
 		f4.getFactura();
-		f5.getFactura();*/
+		f5.getFactura();
 		
 		try {
 			Factura f2= (Factura) f1.clone();
 			f2.getFactura();
-			//f2.agregarServicio("Paso 2200", sC3);
-			//f2.getFactura();
+			f2.agregarServicio("Paso 2200", sC3);
+			f2.getFactura();
 		} catch (CloneNotSupportedException e) {
 			e.getMessage();
 		}
